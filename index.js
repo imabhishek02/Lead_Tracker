@@ -1,4 +1,4 @@
-let myLeads=["abhishek","rohit"]
+let myLeads=[]
 let inputEl=document.getElementById("input-el")
 const inputBtn=document.getElementById("input-btn")
 const ulEl=document.getElementById("ul-el")
@@ -6,10 +6,15 @@ const ulEl=document.getElementById("ul-el")
 
 
 inputBtn.addEventListener("click",function(){
-  neword= inputEl.value
-  myLeads.push(neword)
+  myLeads.push(inputEl.value)
+  renderLeads()
+  inputEl.value=""
 })
 
+function renderLeads(){
+let listItems=""
 for(let i=0;i<myLeads.length;i++){
-ulEl.textContent+=myLeads[i] +" "
+listItems+="<li><a href='#'>"+myLeads[i]+"</a></li>" 
+}
+ulEl.innerHTML=listItems 
 }
